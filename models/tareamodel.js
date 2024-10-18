@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const tareaSchema = new mongoose.Schema(
     {
         tarea: { 
@@ -39,5 +39,5 @@ const tareaSchema = new mongoose.Schema(
     
 );
 
-const ModelTarea = mongose.model("Tarea", tareaSchema);
-modulo.export = ModelTarea;
+const ModelTarea = mongoose.model("tareas", tareaSchema);
+module.export = ModelTarea;

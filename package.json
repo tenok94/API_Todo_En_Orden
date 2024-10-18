@@ -2,7 +2,7 @@
   "name": "api_todo_en_orden",
   "version": "1.0.0",
   "description": "Trabajo final de la materia Mongoose-Express-Node",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js"
   },
