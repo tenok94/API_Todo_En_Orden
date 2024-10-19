@@ -40,4 +40,4 @@ const tareaSchema = new mongoose.Schema(
 );
 
 const ModelTarea = mongoose.model("tareas", tareaSchema);
-module.export = ModelTarea;
+module.exports = ModelTarea;
