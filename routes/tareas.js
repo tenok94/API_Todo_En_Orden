@@ -66,5 +66,34 @@ router.patch("/tareas/:id/completar", async (req, res) => {
     }
 });
 
+// ENDPOINT DE NEGOCIO:
+
+//obtener tareas por prioridad
+router.get("/tareas/prioridad/:prioridad", async (req, res) => {
+    const { prioridad } = req.params;
+    try {
+        const tareas = await ModelTarea.find({ prioridad: prioridad });
+        if (tareas.length === 0) {
+            return res.status(404).send({ mensaje: "No se encontraron tareas con esa prioridad" });
+        }
+        res.status(200).send(tareas);
+    } catch (error) {
+        res.status(500).send({ mensaje: "Error al obtener tareas por prioridad", error });
+    }
+});
+
+// GET /tareas/estado/:estado - Obtener tareas por estado
+router.get("/tareas/estado/:estado", async (req, res) => {
+    const { estado } = req.params;
+    try {
+        const tareas = await ModelTarea.find({ estado: estado });
+        if (tareas.length === 0) {
+            return res.status(404).send({ mensaje: "No se encontraron tareas con ese estado" });
+        }
+        res.status(200).send(tareas);
+    } catch (error) {
+        res.status(500).send({ mensaje: "Error al obtener tareas por estado", error });
+    }
+});
 
 module.exports = router;
